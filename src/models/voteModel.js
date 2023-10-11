@@ -5,8 +5,8 @@ let voteSchema = new Schema({
     niveau:{
         type : Number,
         required: "Le niveau est requis",
-        min: [0],
-        max: [0],
+        min: [1],
+        max: [5],
     },
    
     music_id:{
