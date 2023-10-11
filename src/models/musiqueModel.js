@@ -1,26 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let commentSchema = new Schema({
+let musiqueSchema = new Schema({
     url:{
         type : String,
-        required: "le nom est requis"
+        required: "L'url est requis"
     },
     nom: {
         type : String,
-        required: true
+        required: "Le nom est requis"
     },
     prenom: {
         type : String,
-        required: true
+        required: "Le prénom est requis"
     },
     created_at: {
         type: Date,
         default: Date.now
     },
-    // post_id: {
-    //     type: String,
-    // }
 });
 
-module.exports = mongoose.model('Comment', commentSchema);
+module.exports = mongoose.model('Musique', musiqueSchema);
