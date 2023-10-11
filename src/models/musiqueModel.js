@@ -14,6 +14,20 @@ let musiqueSchema = new Schema({
         type : String,
         required: "Le prénom est requis"
     },
+
+    mail:{
+        type: String,
+        unique: true,
+        required: "Le mail est requis",
+        validate: {
+            validator: function (x) {
+              const Email = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
+              return Email.test(x);
+            },
+            message: "Le mail ne correspond pas"
+        }
+    }, 
+
     created_at: {
         type: Date,
         default: Date.now

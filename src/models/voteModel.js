@@ -5,10 +5,10 @@ let voteSchema = new Schema({
     niveau:{
         type : Number,
         required: "Le niveau est requis",
-        min: [0],
-        max: [5],
-        get: v => Math.floor(v),
-        set: v => Math.floor(v)
+        min: 0,
+        max: 5,
+        get: x => Math.floor(x),
+        set: x => Math.floor(x)
     },
    
     

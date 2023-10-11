@@ -1,5 +1,6 @@
 const Musique = require('../models/musiqueModel');
-// const Post = require('../models/postModel');
+
+//GET (ALL)
 
 exports.listAllMusiques = async (req, res) => {
     try {
@@ -14,6 +15,7 @@ exports.listAllMusiques = async (req, res) => {
     }
 }
 
+//POST
 
 exports.createAMusique = async (req, res) => {
     const newMusique = new Musique(req.body);
@@ -28,6 +30,7 @@ exports.createAMusique = async (req, res) => {
     }
 };
 
+// DELETE
 exports.deleteAMusique = async (req, res) => {
     // const postDelete = new Post(req.body);
 
@@ -42,7 +45,7 @@ exports.deleteAMusique = async (req, res) => {
     }
 };
 
-
+// GET (ONE)
 
 exports.getAMusique = async (req, res) => {
     try {
@@ -55,6 +58,8 @@ exports.getAMusique = async (req, res) => {
         res.json({ message: "Erreur serveur." })
     }
 }
+
+// PUTCH 
 
 exports.updateAMusique = async (req, res) => {
     try {
