@@ -23,11 +23,49 @@ exports.createAVote = async (req, res) => {
 
         } catch (error) {
             console.log(error);
-            res.status(500).json({ message: "Erreur serveur" })
+            res.status(500).json({ message: "Erreur serveur" });
         }
 
-    } catch (error) {
+    }  catch (error) {
         console.log(error);
         res.status(500).json({ message: "Erreur serveur (musique_id inexistant)." });
     }
 }
+
+exports.getAVote = async (req, res) => {
+    try {
+        const vote = await Vote.findById(req.params.id_vote);
+        res.status(200);
+        res.json(vote);
+    } catch (error) {
+        res.status(500);
+        console.log(error);
+        res.json({ message: "Erreur serveur (getAvote)" })
+    }
+}
+
+exports.updateAVote = async (req, res) => {
+    try {
+        const vote = await Vote.findByIdAndUpdate(req.params.id_vote, req.body, { new: true });
+        res.status(200);
+        res.json(vote);
+    } catch (error) {
+        res.status(500);
+        console.log(error);
+        res.json({ message: "Erreur serveur." })
+    }
+}
+
+exports.deleteAVote = async (req, res) => {
+    // const postDelete = new Post(req.body);
+
+    try {
+        await Vote.findByIdAndDelete(req.params.id_vote);
+        res.status(204);
+        res.json({ message: 'Vote supprimé.' });
+    } catch (error) {
+        res.status(500);
+        console.log(error);
+        res.json({ message: 'Erreur serveur' });
+    }
+};
