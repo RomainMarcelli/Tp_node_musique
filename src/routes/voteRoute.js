@@ -10,10 +10,10 @@ router
 
 
 // /votes/:id_vote
-// router
-//     .route('/:id_vote')
-//     .get(voteController.getAVote)
-//     .patch(voteController.updateAVote)
-//     .delete(voteController.deleteAVote);
+router
+    .route('/votes/:id_vote')
+    .get(voteController.getAVote)
+    .delete(voteController.deleteAVote)
+    .patch(voteController.updateAVote);
 
 module.exports = router;   

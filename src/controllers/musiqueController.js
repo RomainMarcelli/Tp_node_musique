@@ -4,11 +4,11 @@ const Musique = require('../models/musiqueModel');
 exports.listAllMusiques = async (req, res) => {
     try {
         const musiques = await Musique.find({});
-        res.status(200)
+        res.status(200);
         res.json(musiques);
 
     } catch (error) {
-        res.status(500)
+        res.status(500);
         console.log(error);
         res.json({ message: 'Erreur serveur' })
     }
