@@ -18,7 +18,7 @@ exports.listAllVotes = async (req, res) => {
 
 exports.createAVote = async (req, res) => {
     try {
-        const Musique = await Musique.findById(req.params.id_musique);
+        const musique = await Musique.findById(req.params.id_musique);
         const newVote = new Vote({ ...req.body, musique_id: req.params.id_musique });
         try {
             const vote = await newVote.save();
